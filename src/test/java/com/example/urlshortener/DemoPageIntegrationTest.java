@@ -28,7 +28,8 @@ class DemoPageIntegrationTest {
         // MockMvc surfaces the forward rather than following it.
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl("index.html"));
+                .andExpect(
+                        org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl("index.html"));
     }
 
     @Test

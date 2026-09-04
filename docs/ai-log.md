@@ -156,3 +156,7 @@ the engineer's; scope confirmed against the assignment (no UI required — pure 
 Spring Boot's welcome-page mapping *forwards* `/` to `index.html`, which MockMvc surfaces
 as a forward rather than following — the test asserts the forward and the served content
 separately, and separately proves a well-formed unknown code still 404s (no shadowing).
+A follow-up commit fixed a Spotless violation that CI caught on the first push (a hand-edit
+after the local format pass) and added an explicit "Open" button after user feedback that
+the clickable short link wasn't obvious — the quality gate and the demo loop both did
+their job.

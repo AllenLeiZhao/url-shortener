@@ -105,9 +105,11 @@
           : 'That URL was already shorter than mine. Bold move — shrunk it anyway.';
         out.innerHTML =
           `<div class="result"><a href="${body.shortUrl}" target="_blank" rel="noopener">${body.shortUrl}</a>` +
+          `<button class="copy" id="open">Open ↗</button>` +
           `<button class="copy" id="copy">Copy</button>` +
-          `<button class="copy" id="stats">Clicks?</button></div>` +
+          `<button class="copy" id="stats">Clicks: ?</button></div>` +
           `<p class="note ok">${quip}</p>`;
+        document.getElementById('open').onclick = () => window.open(body.shortUrl, '_blank');
         document.getElementById('copy').onclick = async (ev) => {
           await navigator.clipboard.writeText(body.shortUrl);
           ev.target.textContent = 'Copied!';
@@ -115,7 +117,7 @@
         };
         document.getElementById('stats').onclick = async (ev) => {
           const s = await (await fetch(`/api/urls/${body.code}/stats`)).json();
-          ev.target.textContent = s.totalClicks === 0 ? '0 clicks (it’s early)' : `${s.totalClicks} clicks`;
+          ev.target.textContent = s.totalClicks === 0 ? 'Clicks: 0 (it’s early)' : `Clicks: ${s.totalClicks}`;
         };
       } else if (res.status === 429) {
         out.innerHTML = `<p class="note err">Whoa there, speedy — rate limit reached. Even free APIs deserve a coffee break. Try again in a minute.</p>`;
