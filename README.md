@@ -100,10 +100,10 @@ docs/             requirements, decomposition, ADRs, AI log, scenarios, risks, e
 
 ## Quick start
 
-Prerequisites: JDK 21+, Maven 3.9+.
+Prerequisites: JDK 21+ (Maven not required — the included wrapper fetches it).
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run      # Windows: mvnw.cmd spring-boot:run
 ```
 
 The service listens on `http://localhost:8080`. Open `http://localhost:8080/` for the
@@ -145,8 +145,8 @@ Errors return a structured body: `{"status", "error", "message", "timestamp"}`.
 ## Tests
 
 ```bash
-mvn test     # unit + integration suite
-mvn verify   # tests + Spotless format check (same gate CI runs)
+./mvnw test     # unit + integration suite
+./mvnw verify   # tests + Spotless format check (same gate CI runs)
 ```
 
 - **Unit**: validation policy (schemes, host, length), collision retry and exhaustion,

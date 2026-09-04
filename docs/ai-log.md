@@ -160,3 +160,14 @@ A follow-up commit fixed a Spotless violation that CI caught on the first push (
 after the local format pass) and added an explicit "Open" button after user feedback that
 the clickable short link wasn't obvious — the quality gate and the demo loop both did
 their job.
+
+### AI-16 · polish · adopted (user-directed review round)
+**Intent given.** The engineer relayed a second review round: add Maven Wrapper for
+clone-and-run; reconcile stale task-range references and explain per-part test-count
+snapshots; record the health-endpoint detail exposure as an explicit risk.
+**Disposition.** All adopted: `mvnw` added (README quick start now wrapper-first),
+final-summary references synced to T1–T19 with a note that per-part test counts
+(15 → 25 → 31 → 34) are stage snapshots, and risks.md gained a `show-details: always`
+row with `when-authorized` as the production path. The suggestion to reshape commit
+history was noted but not acted on — the AI-14 position stands; the explanation is
+verbal-interview material, not a repo change.

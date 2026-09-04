@@ -13,6 +13,7 @@ production answer. "Accepted" means consciously accepted for this scope, not ove
 | Storage exhaustion via anonymous create API | Bot floods `POST /api/urls` | Per-IP rate limit 20/min (429 + Retry-After); 2048-char URL cap | AuthN/API keys, quota per principal, distributed limiter |
 | Rate-limit bypass by IP spoofing headers | Client sets `X-Forwarded-For` | Header deliberately ignored; socket address used (ADR-006) | Behind a trusted proxy: use the proxy-verified client IP only |
 | Short-code enumeration | Walking the code space to scrape stored URLs | Random codes over 62⁷ space, `SecureRandom` (ADR-002) — not sequential | Same; plus anomaly detection on 404 rates |
+| Health-endpoint detail exposure | `/actuator/health` with `show-details: always` reveals DB type and filesystem path to anyone | **Accepted** for demo/review convenience (and how a path leak was caught and fixed during this build) | `show-details: when-authorized` behind an ops role |
 | SQL injection / malformed input | Hostile payloads in URL or code path segments | JPA parameter binding throughout; redirect path constrained to `[0-9A-Za-z]{1,16}` at the route | Same |
 
 ## Reliability & data

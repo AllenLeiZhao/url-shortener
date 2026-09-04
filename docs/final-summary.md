@@ -28,9 +28,9 @@ for **traceable process over feature count**:
 1. Normalize the requirement in writing first (`requirements.md`) — six ambiguities
    identified and dispositioned, not guessed at.
 2. Decompose into tasks with dependencies and acceptance criteria (`decomposition.md`,
-   T1–T18), executed in dependency order across three parts.
+   T1–T19), executed in dependency order across three parts.
 3. For every AI-assisted task, record intent → output → adopted/edited/rejected with
-   rationale (`ai-log.md`, AI-1…AI-14).
+   rationale (`ai-log.md`, AI-1…AI-16).
 4. Make design decisions through ADRs with options and trade-offs (`decisions.md`,
    ADR-001…006), not by accepting the first AI proposal — two proposals were rejected
    outright (truncated-hash codes, AI-3; bucket4j dependency, AI-9) and one was cut for
@@ -45,12 +45,16 @@ for **traceable process over feature count**:
 | Runnable service + tests | `src/` |
 | Setup & API reference | `README.md`, `/swagger-ui.html` at runtime |
 | Requirements analysis | `docs/requirements.md` |
-| Task decomposition (T1–T18, all ✅) | `docs/decomposition.md` |
+| Task decomposition (T1–T19, all ✅) | `docs/decomposition.md` |
 | ADRs ×6 | `docs/decisions.md` |
-| AI traceability log ×14 entries | `docs/ai-log.md` |
+| AI traceability log ×16 entries | `docs/ai-log.md` |
 | Scenario write-ups ×3 (greenfield / brownfield / ambiguous) | `docs/scenarios/` |
 | Risk register & guardrails | `docs/risks.md` |
 | Evidence: test logs, live API transcripts, UI screenshot | `docs/evidence/` |
+
+> Test counts cited in per-part documents reflect the suite as it stood at each stage —
+> 15 after Part 1, 25 after Part 2, 31 after Part 3, 34 including the bonus page — and
+> grew monotonically; they are snapshots, not inconsistencies.
 
 ## 4. Validation summary
 
