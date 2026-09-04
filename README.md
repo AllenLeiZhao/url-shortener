@@ -6,7 +6,7 @@ traceability, and validation at every step.
 
 > Status: **Complete (Parts 1–3)** — greenfield core, click analytics (brownfield
 > scenario), reliability features (ambiguous scenario), hardening, risk register, and final
-> summary. Task board: `docs/decomposition.md` (T1–T18, all done). Start with
+> summary. Task board: `docs/decomposition.md` (T1–T19, all done). Start with
 > `docs/final-summary.md` for the full picture.
 
 ## Stack
@@ -33,6 +33,28 @@ A URL shortener is a lookup table plus a redirect service — the long URL is ne
 Submitting the same URL twice deliberately yields two different codes (no deduplication) —
 a documented product choice (ADR-002): same-code-for-same-URL would let outsiders probe
 whether a URL was already shortened, and independent shares deserve independent stats.
+
+## Screenshots
+
+**Demo page** (`/`) — shorten, open, copy, check clicks:
+
+![Demo page shortening a URL](docs/evidence/final-demo-page.jpg)
+
+**Guardrails in action** — a `javascript:` URL rejected by validation (ADR-004), and the
+21st create within a minute hitting the per-IP rate limit (ADR-006):
+
+| Dangerous scheme → 400 | Rate limit → 429 |
+|---|---|
+| ![Blocked javascript scheme](docs/evidence/final-demo-blocked.jpg) | ![Rate limited](docs/evidence/final-demo-ratelimit.jpg) |
+
+**API surface & a real redirect** — Swagger UI, a short link landing on its destination,
+and the click stats behind it:
+
+| OpenAPI docs | Redirect followed | Click stats |
+|---|---|---|
+| ![Swagger UI](docs/evidence/final-swagger-ui.jpg) | ![Redirect in browser](docs/evidence/final-redirect-in-browser.jpg) | ![Stats endpoint](docs/evidence/final-stats-endpoint.jpg) |
+
+More transcripts and per-part run logs live in [`docs/evidence/`](docs/evidence/).
 
 ## Architecture
 
