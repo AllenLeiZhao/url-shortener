@@ -13,6 +13,27 @@ traceability, and validation at every step.
 
 Java 21 · Spring Boot 3.5 · Maven · H2 (file mode) · springdoc-openapi
 
+## How it works
+
+A URL shortener is a lookup table plus a redirect service — the long URL is never
+"compressed"; it is stored, and a random key points at it:
+
+1. **Shorten** — `POST /api/urls` with a long URL. The service validates it (absolute
+   `http`/`https`, host present, ≤ 2048 chars — dangerous schemes like `javascript:` are
+   rejected), generates a random 7-char Base62 code (`0-9A-Za-z`, ~3.5 × 10¹² combinations,
+   unrelated to the URL's content), and persists the code → URL mapping. If the random code
+   collides with an existing one, the DB unique constraint rejects it and a fresh code is
+   tried (up to 5×). Response: `201` with the short URL.
+2. **Redirect** — `GET /{code}` looks the code up and answers `302` with the original URL
+   in `Location`; the browser follows it. Unknown code → `404`. Each successful redirect
+   also records a click event asynchronously — never on the redirect's critical path.
+3. **Inspect** — `GET /api/urls/{code}` returns the mapping's metadata,
+   `GET /api/urls/{code}/stats` the click statistics.
+
+Submitting the same URL twice deliberately yields two different codes (no deduplication) —
+a documented product choice (ADR-002): same-code-for-same-URL would let outsiders probe
+whether a URL was already shortened, and independent shares deserve independent stats.
+
 ## Architecture
 
 Layered Spring Boot service; every dependency points inward (web → service → repository),
