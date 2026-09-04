@@ -176,6 +176,23 @@ validation (ADR-004) and the 21st create in a minute hitting the per-IP rate lim
 
 More transcripts and per-part run logs live in [`docs/evidence/`](docs/evidence/).
 
+## The three scenarios
+
+Each required scenario has a dedicated write-up showing decomposition → execution →
+validation:
+
+1. **[Greenfield](docs/scenarios/greenfield-core.md)** — building the core service from
+   zero: requirement normalization, task breakdown (T1–T8), schema and short-code design
+   (ADR-002), API contract, and the test suite that pinned it.
+2. **[Brownfield](docs/scenarios/brownfield-analytics.md)** — enhancing the existing
+   system with click analytics: a written **impact analysis before any code change**
+   (affected modules, data flow, failure scenarios, and what stays untouched), then async
+   capture + stats endpoint with the Part-1 contract tests passing unmodified.
+3. **[Ambiguous requirement](docs/scenarios/ambiguous-reliability.md)** — turning
+   "reliability features" into an engineering scope: six candidate interpretations scored
+   by value/cost, three implemented (per-IP rate limiting, health probes, graceful 503),
+   three deferred with recorded rationale.
+
 ## Limitations & trade-offs
 
 Deliberate scope cuts (anonymous API, no link expiry/aliases, H2 as prototype store,
