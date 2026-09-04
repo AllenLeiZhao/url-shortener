@@ -131,8 +131,9 @@ repo against the assignment PDF and report gaps; this session then dispositioned
   documented in `final-summary.md` instead of hidden.
 - *Commit history in per-part increments* — **rejected as stated, adopted in spirit**:
   intermediate file states no longer existed, so fabricating per-part commits would produce
-  non-compiling, dishonest history. Real history recorded instead: baseline commit, review
-  fixes commit, quality-gates commit.
+  non-compiling, dishonest history. Real history recorded instead: two commits — baseline
+  including review fixes (with a message explaining why history starts late), then quality
+  gates.
 - *Malformed JSON bypasses the structured error contract* — **adopted**: added
   `HttpMessageNotReadableException` handler; test now asserts the structured body.
 - *`click_events` index should be (code, occurredAt)* — **adopted**: composite index.

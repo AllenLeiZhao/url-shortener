@@ -65,8 +65,8 @@ for **traceable process over feature count**:
 ### Quality gates
 
 `mvn verify` is the gate: compilation, all 31 tests, and Spotless format check
-(Palantir Java Format); `.github/workflows/ci.yml` runs it on every push/PR. Run
-deliberately **not** included, with rationale: OWASP dependency-check (needs an NVD API
+(Palantir Java Format); `.github/workflows/ci.yml` runs it on every push/PR.
+Deliberately **not** included, with rationale: OWASP dependency-check (needs an NVD API
 key and long feeds download — listed as the first addition for a real repo) and static
 analysis beyond format (SpotBugs/ErrorProne — value at this codebase size didn't justify
 the setup inside the time-box; the gap is recorded rather than hidden). A peer review by a
