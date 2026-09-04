@@ -16,8 +16,9 @@ iterative parts, each treating AI as an accelerator inside engineer-defined task
 - **Part 3 — hardening:** concurrency/duplicate/storage-failure/malformed-input tests, risk
   register, clean-environment verification.
 
-Final state: **31 tests green** (13 unit, 18 integration across 5 HTTP test classes),
-runnable end-to-end with `mvn spring-boot:run`.
+Final state: **34 tests green** (13 unit, 21 integration across 6 HTTP test classes),
+runnable end-to-end with `mvn spring-boot:run` — including a bonus single-file demo page
+at `/` (a static shell over the API; no backend changes).
 
 ## 2. Plan & rationale
 
@@ -64,7 +65,7 @@ for **traceable process over feature count**:
 
 ### Quality gates
 
-`mvn verify` is the gate: compilation, all 31 tests, and Spotless format check
+`mvn verify` is the gate: compilation, all tests, and Spotless format check
 (Palantir Java Format); `.github/workflows/ci.yml` runs it on every push/PR.
 Deliberately **not** included, with rationale: OWASP dependency-check (needs an NVD API
 key and long feeds download — listed as the first addition for a real repo) and static

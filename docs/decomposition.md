@@ -36,3 +36,4 @@ traceability lives in `docs/ai-log.md`.
 | T16 | Clean-environment verification of setup instructions | all | Fresh copy → test → run → exercise endpoints per README; persistence across restart | ✅ done |
 | T17 | Greenfield scenario write-up (retrospective of Part 1) | T1–T8 | `docs/scenarios/greenfield-core.md` completes the three-scenario deliverable | ✅ done |
 | T18 | Peer-review fixes: quality gates (Spotless + CI), error-contract completeness, doc corrections | T1–T17 | Review items dispositioned in ai-log AI-14; `mvn verify` green | ✅ done |
+| T19 | Bonus demo page: static single-file UI over the API at `/` | T5, T10, T12 | Page served without shadowing `/{code}` routes (tested); zero backend changes | ✅ done |

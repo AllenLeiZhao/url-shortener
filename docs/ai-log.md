@@ -143,3 +143,16 @@ repo against the assignment PDF and report gaps; this session then dispositioned
 - *Doc errors (task range T16→T18 refs, X-Forwarded-For wording, "502-style" phrasing,
   missing `ddl-auto` risk)* — **all adopted**; `ddl-auto: update` now has a risk row with
   Flyway/`validate` as the production path.
+
+## Bonus
+
+### AI-15 · T19 · adopted (engineer-directed)
+**Intent given.** "Single-file static demo page over the existing API, served at `/` by
+Spring Boot. Constraints: zero backend changes, zero frameworks, must not shadow the
+`/{code}` redirect mapping, professional look with light humor." The idea and tone were
+the engineer's; scope confirmed against the assignment (no UI required — pure bonus).
+**AI output.** `static/index.html` + `DemoPageIntegrationTest`.
+**Disposition.** Adopted after live verification. One test-environment lesson captured:
+Spring Boot's welcome-page mapping *forwards* `/` to `index.html`, which MockMvc surfaces
+as a forward rather than following — the test asserts the forward and the served content
+separately, and separately proves a well-formed unknown code still 404s (no shadowing).

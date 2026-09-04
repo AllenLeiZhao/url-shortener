@@ -40,3 +40,4 @@ Validation artifacts captured at the end of each part. Logs are live transcripts
 | `final-swagger-ui.jpg` | Swagger UI with the complete API surface: redirect, create, lookup, stats |
 | `final-redirect-in-browser.jpg` | A short link opened in the browser landing on the destination (example.com in the address bar) |
 | `final-stats-endpoint.jpg` | Stats endpoint in the browser: `totalClicks: 6` — 5 scripted clicks plus the one real browser redirect above, closing the analytics loop |
+| `final-demo-page.jpg` | Bonus demo page at `/` shortening a real URL in the browser |

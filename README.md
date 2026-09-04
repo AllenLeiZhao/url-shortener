@@ -106,7 +106,9 @@ Prerequisites: JDK 21+, Maven 3.9+.
 mvn spring-boot:run
 ```
 
-The service listens on `http://localhost:8080`. Interactive API docs: `http://localhost:8080/swagger-ui.html`.
+The service listens on `http://localhost:8080`. Open `http://localhost:8080/` for the
+demo page (paste a URL, get a short link), or `http://localhost:8080/swagger-ui.html`
+for interactive API docs.
 
 ### Try it
 
