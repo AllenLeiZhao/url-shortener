@@ -45,33 +45,23 @@ flowchart LR
         RL[CreateRateLimitFilter<br/>POST /api/urls only]
         API[ShortUrlApiController<br/>create / lookup / stats]
         RD[RedirectController<br/>GET /code → 302]
-        EH[GlobalExceptionHandler<br/>400 / 404 / 429 / 500 / 503]
+        EH[GlobalExceptionHandler<br/>one structured error shape]
     end
     subgraph service
-        US[UrlShortenerService]
-        V[UrlValidator<br/>scheme/host/length]
-        G[ShortCodeGenerator<br/>SecureRandom Base62]
-        CT[ClickTrackingService]
+        US[UrlShortenerService<br/>validate · generate code · store]
+        CT[ClickTrackingService<br/>async · best-effort]
     end
     subgraph repository
         SR[ShortUrlRepository]
         CR[ClickEventRepository]
     end
-    DB[(H2 file mode<br/>short_urls · click_events)]
-    EX[[analytics executor<br/>bounded async pool]]
+    DB[(H2 file mode)]
 
-    RL --> API
-    API --> US
+    RL --> API --> US
     RD --> US
-    API --> CT
-    US --> V
-    US --> G
-    US --> SR
-    RD -. fire-and-forget .-> EX
-    EX --> CT
-    CT --> CR
-    SR --> DB
-    CR --> DB
+    RD -. click event, off the hot path .-> CT
+    US --> SR --> DB
+    CT --> CR --> DB
 ```
 
 **Control flow, hot path (redirect):** route-constrained code (`[0-9A-Za-z]{1,16}`) →
