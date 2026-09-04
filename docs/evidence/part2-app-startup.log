@@ -1,0 +1,47 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2026-09-03T20:02:51.406-07:00  INFO 95331 --- [url-shortener] [           main] c.e.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.3 with PID 95331 (~/workspace/url-shortener/target/classes started by Allen in ~/workspace/url-shortener)
+2026-09-03T20:02:51.408-07:00  INFO 95331 --- [url-shortener] [           main] c.e.u.UrlShortenerApplication            : No active profile set, falling back to 1 default profile: "default"
+2026-09-03T20:02:52.301-07:00  INFO 95331 --- [url-shortener] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-03T20:02:52.395-07:00  INFO 95331 --- [url-shortener] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 2 JPA repository interfaces.
+2026-09-03T20:02:52.852-07:00  INFO 95331 --- [url-shortener] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-09-03T20:02:52.866-07:00  INFO 95331 --- [url-shortener] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-03T20:02:52.866-07:00  INFO 95331 --- [url-shortener] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2026-09-03T20:02:52.934-07:00  INFO 95331 --- [url-shortener] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-03T20:02:52.935-07:00  INFO 95331 --- [url-shortener] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1495 ms
+2026-09-03T20:02:53.134-07:00  INFO 95331 --- [url-shortener] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-03T20:02:53.174-07:00  INFO 95331 --- [url-shortener] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-09-03T20:02:53.200-07:00  INFO 95331 --- [url-shortener] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-03T20:02:53.422-07:00  INFO 95331 --- [url-shortener] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-03T20:02:53.445-07:00  INFO 95331 --- [url-shortener] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-03T20:02:53.630-07:00  INFO 95331 --- [url-shortener] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/urlshortener user=SA
+2026-09-03T20:02:53.631-07:00  INFO 95331 --- [url-shortener] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-03T20:02:53.687-07:00  INFO 95331 --- [url-shortener] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-03T20:02:54.397-07:00  INFO 95331 --- [url-shortener] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-03T20:02:54.449-07:00  INFO 95331 --- [url-shortener] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-03T20:02:55.323-07:00  INFO 95331 --- [url-shortener] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-09-03T20:02:55.417-07:00  INFO 95331 --- [url-shortener] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-09-03T20:02:55.431-07:00  INFO 95331 --- [url-shortener] [           main] c.e.u.UrlShortenerApplication            : Started UrlShortenerApplication in 4.381 seconds (process running for 4.63)
+2026-09-03T20:02:56.058-07:00  INFO 95331 --- [url-shortener] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-03T20:02:56.058-07:00  INFO 95331 --- [url-shortener] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-03T20:02:56.059-07:00  INFO 95331 --- [url-shortener] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-03T20:03:20.058-07:00  INFO 95331 --- [url-shortener] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-03T20:03:20.068-07:00  INFO 95331 --- [url-shortener] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-09-03T20:03:20.084-07:00  INFO 95331 --- [url-shortener] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-03T20:03:20.104-07:00  INFO 95331 --- [url-shortener] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-03T20:03:20.127-07:00  INFO 95331 --- [url-shortener] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: url-shortener
+  datasource:
+    url: jdbc:h2:file:./data/urlshortener;MODE=LEGACY
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+app:
+  # Base used to build the short URL returned by the API.
+  base-url: http://localhost:8080
+  short-code:
+    length: 7
+    max-collision-retries: 5
+  rate-limit:
+    # Per-client-IP fixed-window limit on POST /api/urls. Reads/redirects unlimited.
+    create-per-minute: 20
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+
+server:
+  port: 8080

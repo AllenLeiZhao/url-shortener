@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+app:
+  base-url: http://localhost:8080
+  short-code:
+    length: 7
+    max-collision-retries: 5
+  rate-limit:
+    # High so the general integration suite never trips it; the rate-limit test
+    # overrides this with a low value in its own context.
+    create-per-minute: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always

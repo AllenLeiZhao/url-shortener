@@ -1,0 +1,29 @@
+# Day 1 end-to-end API demo — 2026-09-03 19:48 PDT
+
+## 1. POST /api/urls — shorten a valid URL
+{"code":"Bi5SdvS","shortUrl":"http://localhost:8080/Bi5SdvS","originalUrl":"https://www.example.com/some/very/long/path?with=params&x=1","createdAt":"2026-09-04T02:48:39.644355Z"}
+
+## 2. GET /Bi5SdvS — 302 redirect
+HTTP/1.1 302 
+Location: https://www.example.com/some/very/long/path?with=params&x=1
+Content-Length: 0
+Date: Fri, 04 Sep 2026 02:48:40 GMT
+
+
+## 3. GET /api/urls/Bi5SdvS — metadata lookup
+{"code":"Bi5SdvS","shortUrl":"http://localhost:8080/Bi5SdvS","originalUrl":"https://www.example.com/some/very/long/path?with=params&x=1","createdAt":"2026-09-04T02:48:39.644355Z"}
+
+## 4. GET /zzzzzz9 — unknown code → 404
+HTTP/1.1 404 
+Content-Type: application/json
+Transfer-Encoding: chunked
+{"status":404,"error":"Not Found","message":"No short URL found for code: zzzzzz9","timestamp":"2026-09-04T02:48:40.177410Z"}
+
+## 5. POST javascript: scheme → 400 (security validation)
+HTTP/1.1 400 
+Content-Type: application/json
+Transfer-Encoding: chunked
+{"status":400,"error":"Bad Request","message":"Only http and https URLs are supported","timestamp":"2026-09-04T02:48:40.223272Z"}
+
+## 6. POST blank url → 400 (bean validation)
+{"status":400,"error":"Bad Request","message":"url: url is required","timestamp":"2026-09-04T02:48:40.253674Z"}

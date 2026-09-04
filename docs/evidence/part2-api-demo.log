@@ -1,0 +1,33 @@
+# Part 2 end-to-end demo — analytics + reliability — 2026-09-03 20:03 PDT
+
+## 1. Health probes (reliability R1)
+{
+    "status": "UP",
+    "groups": [
+        "liveness",
+        "readiness"
+    ],
+    "components": {
+        "db": {
+            "status": "UP",
+            "details": {
+                "database": "H2",
+                "validationQuery": "isValid()"
+
+## 2. Create a short URL, click it 3 times (with referrer/UA), then read stats
+{"code":"aTOXyqq","shortUrl":"http://localhost:8080/aTOXyqq","originalUrl":"https://www.example.com/campaign/landing","createdAt":"2026-09-04T03:03:08.798579Z"}
+click 1: 302 in 0.117836s
+click 2: 302 in 0.004934s
+click 3: 302 in 0.004503s
+stats:
+{"code":"aTOXyqq","totalClicks":3,"clicksLast24h":3,"lastClickAt":"2026-09-04T03:03:09.085369Z"}
+
+## 3. Rate limit on create path (reliability R2, limit=20/min) — burst 22 requests
+201 201 201 201 201 201 201 201 201 201 201 201 201 201 201 201 201 201 201 429 429 429 
+over-limit response body:
+HTTP/1.1 429 
+Retry-After: 60
+{"status":429,"error":"Too Many Requests","message":"Create rate limit exceeded, retry later","timestamp":"2026-09-04T03:03:10.655084Z"}
+
+## 4. Redirect path unaffected while create path is rate-limited
+redirect while limited: 302

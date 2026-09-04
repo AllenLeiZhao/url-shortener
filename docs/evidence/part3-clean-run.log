@@ -1,0 +1,17 @@
+# Part 3 clean-environment verification — 2026-09-03 20:17 PDT
+# Fresh copy of the repo (no target/, no data/), following README quick-start.
+
+## mvn test: 31/31 green (see part3-mvn-test.log for the tracked-repo run)
+
+## Run 1: start app, create a mapping
+health: 200
+{"code":"7Sk5Ono","shortUrl":"http://localhost:8080/7Sk5Ono","originalUrl":"https://www.example.com/persistence-check","createdAt":"2026-09-04T03:17:44.606444Z"}
+redirect: 302
+
+## Stop the app, start it again — mapping must survive (H2 file mode)
+## Run 2: resolve the same code after restart
+HTTP/1.1 302 
+Location: https://www.example.com/persistence-check
+{"code":"7Sk5Ono","shortUrl":"http://localhost:8080/7Sk5Ono","originalUrl":"https://www.example.com/persistence-check","createdAt":"2026-09-04T03:17:44.606444Z"}
+
+## Result: setup instructions verified end-to-end on a clean copy; data survives restart.
